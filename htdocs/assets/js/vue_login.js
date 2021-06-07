@@ -13,8 +13,9 @@ const app = {
   methods: {
     // 函式的集合
     login() {
+      const url = `${baseUrl}/admin/signin`;
       axios
-        .post(`${baseUrl}/admin/signin`, this.loginData)
+        .post(url, this.loginData)
         .then((res) => {
           if (res.data.success) {
             // const token = res.data.token;

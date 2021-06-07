@@ -47,8 +47,9 @@ const app = createApp({
     // 函式的集合
     // 檢查使用者是否仍持續登入
     loginCheck() {
+      const url = `${baseUrl}/api/user/check`;
       axios
-        .post(`${baseUrl}/api/user/check`)
+        .post(url)
         .then((res) => {
           if (res.data.success) {
             console.log('已確認為使用者本人登入')
@@ -63,8 +64,9 @@ const app = createApp({
     },
     // 取得產品列表
     getData(num = this.pagination.current_page || 1) { // 參數預設值
+      const url = `${baseUrl}/api/${apiPath}/admin/products?page=${num}`;
       axios
-        .get(`${baseUrl}/api/${apiPath}/admin/products?page=${num}`)
+        .get(url)
         .then((res) => {
           if (res.data.success) {
             // this.products = res.data.products
@@ -83,10 +85,9 @@ const app = createApp({
     },
     // 刪除單筆商品
     deleteProduct() {
+      const url = `${baseUrl}/api/${apiPath}/admin/product/${this.tempProduct.id}`;
       axios
-        .delete(
-          `${baseUrl}/api/${apiPath}/admin/product/${this.tempProduct.id}`
-        )
+        .delete(url)
         .then((res) => {
           delProductModal.hide() // 關掉 modal
           alert(`已刪除${this.tempProduct.title}商品`)
@@ -128,15 +129,15 @@ const app = createApp({
     // 於modal內按下確認按鈕時觸發
     updateProduct(tempProduct) {
       // 預設為 新增
-      let apiUrl = `${baseUrl}/api/${apiPath}/admin/product/`
+      let url = `${baseUrl}/api/${apiPath}/admin/product/`
       let httpMethod = 'post'
       // 根據 isNew 來判斷要串接 post 或是 put API
       if (!this.isNew) {
         // 進入編輯狀態
-        apiUrl = `${baseUrl}/api/${apiPath}/admin/product/${tempProduct.id}`
+        url = `${baseUrl}/api/${apiPath}/admin/product/${tempProduct.id}`
         httpMethod = 'put'
       }
-      axios[httpMethod](apiUrl, { data: tempProduct }) // post 或 put
+      axios[httpMethod](url, { data: tempProduct }) // post 或 put
         .then((res) => {
           if (res.data.success) {
             productModal.hide() // 關掉 modal
@@ -151,7 +152,8 @@ const app = createApp({
     },
     // 取得所有產品數量
     getAllproducts() {
-      axios.get(`${baseUrl}/api/${apiPath}/admin/products/all`).then((res) => {
+      const url = `${baseUrl}/api/${apiPath}/admin/products/all`;
+      axios.get(url).then((res) => {
         this.allproductsNum = Object.values(res.data.products) // 將回傳的物件轉換為陣列
       })
     },
@@ -408,11 +410,12 @@ app.component('productModal',{
     },
     uploadMainImgage(e) {
       console.dir(e);
+      const url = `${baseUrl}/api/${apiPath}/admin/upload`
       const file = e.target.files[0];
       const formData = new FormData();
       formData.append("file-to-upload", file);
       axios
-        .post(`${baseUrl}/api/${apiPath}/admin/upload`, formData)
+        .post(url, formData)
         .then((res) => {
           console.log(res);
           this.whereProduct.imageUrl = res.data.imageUrl;
@@ -422,11 +425,12 @@ app.component('productModal',{
     },
     uploadSubImgage(e) {
       console.dir(e);
+      const url = `${baseUrl}/api/${apiPath}/admin/upload`
       const file = e.target.files[0];
       const formData = new FormData();
       formData.append("file-to-upload", file);
       axios
-        .post(`${baseUrl}/api/${apiPath}/admin/upload`, formData)
+        .post(url, formData)
         .then((res) => {
           console.log(res);
           this.whereProduct.imagesUrl[this.whereProduct.imagesUrl.length-1]= res.data.imageUrl;
