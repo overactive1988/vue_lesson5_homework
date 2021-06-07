@@ -84,9 +84,9 @@
         <pagination :page="pagination" @get-product="getData"></pagination>
         </div>
         <!-- Modal -->
-        <product-modal :where-product="tempProduct" @update-product="updateProduct"></product-modal>
+        <admin-product-modal ref="adminControlModal" :where-product="tempProduct" @update-product="updateProduct"></admin-product-modal>
         <!-- 刪除按鈕彈出 Modal -->
-        <del-product-modal :temp-product="tempProduct" @delete-product="deleteProduct"></del-product-modal>
+        <del-product-modal ref="adminDelModal" :temp-product="tempProduct" @delete-product="deleteProduct"></del-product-modal>
       </div>
     </div>
     <script
