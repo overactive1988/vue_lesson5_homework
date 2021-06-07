@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "anagroup-icons";
+  src: url( "../fonts/anagroup-icons.eot" );
+  src: url( "../fonts/anagroup-icons.eot?#iefix" ) format( "eot" ),
+       url( "../fonts/anagroup-icons.woff" ) format( "woff" ),
+       url( "../fonts/anagroup-icons.ttf" ) format( "truetype" ),
+       url( "../fonts/anagroup-icons.svg#anagroup-icons" ) format( "svg" );
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="anagroup-icons-"], [class*=" anagroup-icons-"] {
+  font-family: "anagroup-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  speak: none;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.anagroup-icons-airplane:before { content: "\EA01" }
+.anagroup-icons-search:before { content: "\EA02" }
+.anagroup-icons-blank:before { content: "\EA03" }
+.anagroup-icons-caution:before { content: "\EA04" }
+.anagroup-icons-caution_o:before { content: "\EA05" }
+.anagroup-icons-plus:before { content: "\EA06" }
+.anagroup-icons-minus:before { content: "\EA07" }
+.anagroup-icons-close:before { content: "\EA08" }
+.anagroup-icons-arr1_t:before { content: "\EA09" }
+.anagroup-icons-arr1_r:before { content: "\EA0A" }
+.anagroup-icons-arr1_b:before { content: "\EA0B" }
+.anagroup-icons-arr1_l:before { content: "\EA0C" }
+.anagroup-icons-arr2_t:before { content: "\EA0D" }
+.anagroup-icons-arr2_r:before { content: "\EA0E" }
+.anagroup-icons-arr2_b:before { content: "\EA0F" }
+.anagroup-icons-arr2_l:before { content: "\EA10" }
+.anagroup-icons-arr3_t:before { content: "\EA11" }
+.anagroup-icons-arr3_r:before { content: "\EA12" }
+.anagroup-icons-arr3_b:before { content: "\EA13" }
+.anagroup-icons-arr3_l:before { content: "\EA14" }
+.anagroup-icons-arr4_t:before { content: "\EA15" }
+.anagroup-icons-arr4_r:before { content: "\EA16" }
+.anagroup-icons-arr4_b:before { content: "\EA17" }
+.anagroup-icons-arr4_l:before { content: "\EA18" }
+.anagroup-icons-arr5_t:before { content: "\EA19" }
+.anagroup-icons-arr5_r:before { content: "\EA1A" }
+.anagroup-icons-arr5_b:before { content: "\EA1B" }
+.anagroup-icons-arr5_l:before { content: "\EA1C" }
+.anagroup-icons-arr6_t:before { content: "\EA1D" }
+.anagroup-icons-arr6_r:before { content: "\EA1E" }
+.anagroup-icons-arr6_b:before { content: "\EA1F" }
+.anagroup-icons-arr6_l:before { content: "\EA20" }
+.anagroup-icons-facebook:before { content: "\EA21" }
+.anagroup-icons-twitter:before { content: "\EA22" }
+.anagroup-icons-youtube:before { content: "\EA23" }
+.anagroup-icons-instagram:before { content: "\EA24" }
+.anagroup-icons-line:before { content: "\EA25" }
+.anagroup-icons-google:before { content: "\EA26" }
+.anagroup-icons-yahoo:before { content: "\EA27" }
+.anagroup-icons-star:before { content: "\EA28" }
+.anagroup-icons-star_o:before { content: "\EA29" }
+.anagroup-icons-arr_t:before { content: "\EA2A" }
+.anagroup-icons-arr_r:before { content: "\EA2B" }
+.anagroup-icons-arr_b:before { content: "\EA2C" }
+.anagroup-icons-arr_l:before { content: "\EA2D" }
+.anagroup-icons-cal:before { content: "\EA2E" }
+.anagroup-icons-chart:before { content: "\EA2F" }
+.anagroup-icons-environment:before { content: "\EA30" }
+.anagroup-icons-globe:before { content: "\EA31" }
+.anagroup-icons-report:before { content: "\EA32" }
+.anagroup-icons-analysis:before { content: "\EA33" }
+.anagroup-icons-table:before { content: "\EA34" }

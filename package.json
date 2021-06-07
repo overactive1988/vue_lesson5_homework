@@ -1,0 +1,43 @@
+{
+  "name": "ana-group-component_2019",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "git@github.com:bhworks/ana-group-component_2019.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "gulp pcss-production",
+    "gulp": "gulp"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "browser-sync": "^2.26.5",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-cached": "^1.1.1",
+    "gulp-changed": "^4.0.0",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-uglify": "^3.0.2",
+    "jstransformer-escape-html": "^1.1.0",
+    "jstransformer-pug": "^0.3.0",
+    "postcss-color-function": "^4.1.0",
+    "postcss-discard-comments": "^4.0.2",
+    "postcss-import": "^12.0.1",
+    "postcss-mixins": "^6.2.2",
+    "postcss-preset-env": "^6.6.0",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^10.0.1",
+    "stylelint-config-rational-order": "^0.1.2"
+  },
+  "dependencies": {}
+}

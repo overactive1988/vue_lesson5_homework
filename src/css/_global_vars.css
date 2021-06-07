@@ -1,0 +1,83 @@
+/* ==========================================================================
+ Materialize variables
+========================================================================== */
+/*
+Table of Contents:
+1. Costom Media Query
+2. Colors
+*/
+
+/* 1. Costom Media Query 
+	========================================================================== */
+@custom-media --xs only screen and (min-width: 0px) and (max-width: 400px);
+@custom-media --sp only screen and (min-width: 0px) and (max-width: 767px);
+@custom-media --sptb only screen and (min-width: 0px) and (max-width: 1024px);
+@custom-media --tb only screen and (min-width: 768px) and (max-width: 1024px);
+@custom-media --tbpc only screen and (min-width: 768px);
+@custom-media --pc only screen and (min-width: 1025px);
+@custom-media --large only screen and (min-width: 768px) and (max-width: 1300px);
+@custom-media --xlarge only screen and (min-width: 1301px);
+
+@custom-media --spmax only screen and (min-width: 0px) and (max-width: 768px);
+@custom-media --pcmin only screen and (min-width: 769px) and (max-width: 1024px);
+@custom-media --pcmax only screen and (min-width: 769px);
+@custom-media --irregular1 only screen and (min-width: 769px) and (max-width: 1200px);
+
+:root {
+  /* 2. Colors
+	========================================================================== */
+
+  /* ベースカラー */
+  --color-base-black1: #4d4d4d;
+  --color-base-black2: #9f9f9f;
+  --color-base-black3: #dbdbdb;
+  --color-base-black4: #f5f5f5;
+
+  --color-base-blue1: #26429c;
+  --color-base-blue2: #003b90;
+  --color-base-blue3: #3c58a7;
+  --color-base-blue4: #eff3fe;
+  --color-base-blue5: #113f87;
+  --color-base-blue6: #5d99d5;
+
+  --color-base-brown1: #000;
+  --color-base-brown2: #000;
+  --color-base-brown3: #000;
+  --color-base-brown4: #000;
+
+  --color-base-green1: #000;
+  --color-base-green2: #000;
+  --color-base-green3: #000;
+  --color-base-green4: #000;
+
+  --color-base-red1: #cc0000;
+  --color-base-red2: #d53426;
+  --color-base-red3: #e94738;
+  --color-base-red4: #fae5e5;
+  --color-base-red5: #c90000;
+
+  --color-base-pink1: #d12174;
+
+  --color-base-yellow1: #d0a500;
+  --color-base-yellow2: #ffe860;
+  --color-base-yellow3: #ece2bf;
+  --color-base-yellow4: #fdf9ed;
+  --color-base-yellow5: #f3ce5c;
+
+  /* タイトル */
+  --color-title: #000;
+  /* テキスト＆フォーム */
+  --color-text: #000;
+  --color-form: #000;
+  /* リンク */
+  --color-link: var(--color-base-blue2);
+  /* テキスト用緑 */
+  --color-text-green: var(--color-base-green1);
+  /* テキスト用オレンジ */
+  --color-text-orange: var(--color-base-red2);
+  /* アイコン色 */
+  --color-icon: var(--color-base-black2);
+  /* 枠線グレー */
+  --color-border: #aeb3cd;
+  --color-border-hover: #b3b3b3;
+}

@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@import "_include/_foundation/_mixins.css";
+@import "_include/_layout/_flex.css";
+@import "_include/_components/_button.css";
+@import "_include/_components/_link.css";
+@import "_include/_components/_svg-icon.css";
+@import "_include/_utility/_utility.css";
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(0px 0px 99.9% 99.9%) !important;
+}

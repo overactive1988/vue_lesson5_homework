@@ -1,0 +1,63 @@
+@define-mixin u-bgcolor $responsive {
+  $(responsive)-bgcolor-base {
+    background: var(--color-base-01) !important;
+  }
+  $(responsive)-bgcolor-01 {
+    background: var(--color-bg-01) !important;
+  }
+  $(responsive)-bgcolor-02 {
+    background: var(--color-bg-02) !important;
+  }
+  $(responsive)-bgcolor-03 {
+    background: var(--color-bg-03) !important;
+  }
+  $(responsive)-bgcolor-04 {
+    background: var(--color-bg-04) !important;
+  }
+  $(responsive)-bgcolor-05 {
+    background: var(--color-bg-05) !important;
+  }
+  $(responsive)-bgcolor-06 {
+    background: var(--color-bg-06) !important;
+  }
+  $(responsive)-bgcolor-red {
+    background: var(--color-base-red300) !important;
+  }
+  $(responsive)-bgcolor-gray {
+    background: var(--color-bg-04) !important;
+  }
+  $(responsive)-bgcolor-white {
+    background: #fff !important;
+  }
+  $(responsive)-bgcolor-yellow {
+    background: var(--color-base-yellow300) !important;
+  }
+  $(responsive)-bgcolor-gray2 {
+    background: color(var(--color-base-gray300) b(5%)) !important;
+  }
+
+  $(responsive)-bgcolor-blue1 {
+    background: var(--color-base-blue700) !important;
+  }
+  $(responsive)-bgcolor-blue2 {
+    background: var(--color-base-blue300) !important;
+  }
+}
+
+@mixin u-bgcolor .u;
+
+@media (--sp) {
+  /* prettier-ignore */
+  @mixin u-bgcolor .s\:u;
+}
+@media (--tbpc) {
+  /* prettier-ignore */
+  @mixin u-bgcolor .m\:u;
+}
+@media (--pc) {
+  /* prettier-ignore */
+  @mixin u-bgcolor .l\:u;
+}
+/*@media (--large) {
+  @mixin u-bgcolor .xl\:u;
+}*/

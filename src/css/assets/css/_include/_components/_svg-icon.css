@@ -1,0 +1,21 @@
+.c-svg-icon {
+  width: 1em;
+  height: 1em;
+
+  &._blank {
+    width: 0.8em;
+    height: 0.8em;
+  }
+  &._pdf {
+    width: 1.6em;
+    height: 1.6em;
+  }
+  &._x2 {
+    width: 2em;
+    height: 2em;
+  }
+  &._x1\.5 {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}

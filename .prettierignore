@@ -1,0 +1,4 @@
+src/pug/**/*.html
+src/js/**/*.js
+htdocs/
+README.md

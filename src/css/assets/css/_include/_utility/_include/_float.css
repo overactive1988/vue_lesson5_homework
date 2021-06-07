@@ -1,0 +1,38 @@
+@define-mixin u-float $u {
+  $(u)-float-l {
+    float: left !important;
+  }
+  $(u)-float-r {
+    float: right !important;
+  }
+  $(u)-float-cb {
+    clear: both !important;
+  }
+  $(u)-float-cn {
+    clear: none !important;
+  }
+  $(u)-float-cf {
+    &::after {
+      display: block !important;
+      clear: both !important;
+      content: "" !important;
+    }
+  }
+}
+
+@mixin u-float .u;
+@media (--sp) {
+  /* prettier-ignore */
+  @mixin u-float .s\:u;
+}
+@media (--tbpc) {
+  /* prettier-ignore */
+  @mixin u-float .m\:u;
+}
+@media (--pc) {
+  /* prettier-ignore */
+  @mixin u-float .l\:u;
+}
+/*@media (--large) {
+  @mixin u-float .xl\:u;
+}*/

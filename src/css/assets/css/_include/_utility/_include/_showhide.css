@@ -1,0 +1,105 @@
+.u-hide {
+  display: none !important;
+}
+
+.u-hide-s,
+.u-hide-s-down {
+  @media (--sp) {
+    display: none !important;
+  }
+}
+
+.u-hide-m-down {
+  @media (--sptb) {
+    display: none !important;
+  }
+}
+
+.u-hide-m-up {
+  @media (--tbpc) {
+    display: none !important;
+  }
+}
+
+.u-hide-m {
+  @media (--tb) {
+    display: none !important;
+  }
+}
+
+.u-hide-l {
+  @media (--pc) {
+    display: none !important;
+  }
+}
+
+.u-show {
+  display: block !important;
+}
+
+.u-show-l {
+  @media (--pc) {
+    display: block !important;
+  }
+}
+
+.u-show-m {
+  @media (--tb) {
+    display: block !important;
+  }
+}
+
+.u-show-s {
+  @media (--sp) {
+    display: block !important;
+  }
+}
+
+.u-show-m-up {
+  @media (--tbpc) {
+    display: block !important;
+  }
+}
+
+.u-show-m-down {
+  @media (--sptb) {
+    display: block !important;
+  }
+}
+
+@define-mixin u-hide $responsive {
+  $(responsive)-hide {
+    display: none !important;
+  }
+}
+@define-mixin u-show $responsive {
+  $(responsive)-show {
+    display: block !important;
+  }
+}
+
+@mixin u-hide .u;
+@mixin u-show .u;
+
+@media (--sp) {
+  /* prettier-ignore */
+  @mixin u-hide .s\:u;
+  /* prettier-ignore */
+  @mixin u-show .s\:u;
+}
+@media (--tbpc) {
+  /* prettier-ignore */
+  @mixin u-hide .m\:u;
+  /* prettier-ignore */
+  @mixin u-show .m\:u;
+}
+@media (--pc) {
+  /* prettier-ignore */
+  @mixin u-hide .l\:u;
+  /* prettier-ignore */
+  @mixin u-show .l\:u;
+}
+/*@media (--large) {
+  @mixin u-hide .xl\:u;
+  @mixin u-show .xl\:u;
+}*/

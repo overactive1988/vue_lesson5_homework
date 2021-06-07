@@ -1,0 +1,32 @@
+@define-mixin u-border $responsive {
+  $(responsive)-border {
+    border: 1px solid var(--color-border) !important;
+  }
+  $(responsive)-border-gray {
+    border: 1px solid var(--color-base-gray400) !important;
+  }
+  $(responsive)-border-red {
+    border: 1px solid var(--color-base-main) !important;
+  }
+  $(responsive)-border-no {
+    border: none !important;
+  }
+}
+
+@mixin u-border .u;
+
+@media (--sp) {
+  /* prettier-ignore */
+  @mixin u-border .s\:u;
+}
+@media (--tbpc) {
+  /* prettier-ignore */
+  @mixin u-border .m\:u;
+}
+@media (--pc) {
+  /* prettier-ignore */
+  @mixin u-border .l\:u;
+}
+/*@media (--large) {
+  @mixin u-border .xl\:u;
+}*/

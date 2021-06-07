@@ -1,0 +1,28 @@
+.u-divider {
+  height: 1px !important;
+  overflow: hidden !important;
+  background-color: var(--color-border) !important;
+  border: none !important;
+
+  &._full {
+    margin-right: calc(((100vw - 100%) / 2) * -1) !important;
+    margin-left: calc(((100vw - 100%) / 2) * -1) !important;
+    padding: 0 calc((100vw - 100%) / 2) !important;
+  }
+}
+
+.u-divider-1 {
+  height: 1px !important;
+  margin: 20px 0 30px !important;
+  overflow: hidden !important;
+  background-color: var(--color-border) !important;
+  border: none !important;
+}
+
+.u-divider-2 {
+  height: 1px !important;
+  margin: 50px 0 30px !important;
+  overflow: hidden !important;
+  background-color: var(--color-border) !important;
+  border: none !important;
+}

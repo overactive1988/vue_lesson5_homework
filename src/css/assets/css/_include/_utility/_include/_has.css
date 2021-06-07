@@ -1,0 +1,8 @@
+.has-parent-selected {
+  display: none !important;
+}
+.is-selected {
+  & > .has-parent-selected {
+    display: block !important;
+  }
+}
