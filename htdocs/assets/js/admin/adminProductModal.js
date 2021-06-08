@@ -64,7 +64,7 @@ export default {
                     placeholder="請輸入圖片連結"
                     v-model="whereProduct.imagesUrl[index]"
                   />
-                  <img class="img-fluid my-3" :src="item" alt />
+                  <img class="img-fluid my-3 form-img" :src="item" alt />
 
                     <div>
                     <label class="btn btn-outline-success btn-sm d-block w-100 my-3">
