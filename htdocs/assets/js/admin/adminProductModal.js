@@ -33,7 +33,7 @@ export default {
                   v-model.trim="whereProduct.imageUrl"
                 />
                 <img
-                  class="img-fluid my-3"
+                  class="img-fluid my-3 form-img"
                   :src="whereProduct.imageUrl"
                   :alt="whereProduct.title"
                 />
