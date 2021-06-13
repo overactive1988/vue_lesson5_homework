@@ -146,6 +146,7 @@ const app = createApp({
     getAllproducts() {
       const url = `${baseUrl}/api/${apiPath}/admin/products/all`;
       axios.get(url).then((res) => {
+        console.log(res);
         this.allproductsNum = Object.values(res.data.products) // 將回傳的物件轉換為陣列
       })
     },
