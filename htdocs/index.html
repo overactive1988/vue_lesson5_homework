@@ -142,7 +142,19 @@
         </div>
       </div>
       <div class="my-5 row justify-content-center">
-        <v-form v-slot="{ errors }" @submit:prevent="onSubmit" class="col-md-6">
+        <v-form ref="form" v-slot="{ errors }" @submit="onSubmit" class="col-md-6">
+          
+          <div class="mb-3">
+            <label for="name" class="form-label">收件人姓名</label>
+            <v-field id="name" name="姓名" type="text"
+             class="form-control"
+             :class="{ 'is-invalid': errors['姓名'] }"
+             placeholder="請輸入 姓名"
+             rules="required"
+             v-model="form.user.name"></v-field>
+            <error-message name="姓名" class="invalid-feedback"></error-message>
+          </div>
+          
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <v-field id="email" name="信箱" type="email"
@@ -155,19 +167,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="name" class="form-label">收件人姓名</label>
-            <v-field id="name" name="姓名" type="text"
-             class="form-control"
-             :class="{ 'is-invalid': errors['姓名'] }"
-             placeholder="請輸入 姓名"
-             rules="required"
-             v-model="form.user.name"></v-field>
-            <error-message name="姓名" class="invalid-feedback"></error-message>
-          </div>
-
-          <div class="mb-3">
             <label for="tel" class="form-label">收件人電話</label>
-            <v-field id="tel" name="電話" type="number"
+            <v-field id="tel" name="電話" type="text"
              class="form-control"
              :class="{ 'is-invalid': errors['電話'] }"
              placeholder="請輸入 電話"
@@ -187,16 +188,17 @@
             <error-message name="地址" class="invalid-feedback"></error-message>
           </div>
 
+          <div class="mb-3">
+            <label for="message" class="form-label">留言</label>
+            <textarea name="" id="message" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
+          </div>
+
           <div class="text-end">
             <button type="submit" class="btn btn-danger">送出訂單</button>
           </div>
-          <!--
   
-          <div class="mb-3">
-            <label for="message" class="form-label">留言</label>
-            <textarea name="" id="message" class="form-control" cols="30" rows="10"></textarea>
-          </div>
- -->
+
+
         </v-form>
       </div>
     </div>

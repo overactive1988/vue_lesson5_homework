@@ -138,13 +138,19 @@ const app = Vue.createApp({
       },
     onSubmit(){
         const orderInfo = {
+          data: {
+            user: this.form.user,
+            message:this.form.message,
+          },
         }
-        const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
+        console.log(orderInfo);
+        const url = `${baseUrl}/api/${apiPath}/order`;
         axios
-        .put(url,cartInfo)
+        .post(url,orderInfo)
         .then((res) => {
             console.log(res);
             if (res.data.success) {
+            this.$refs.form.resetForm();
             this.getCart();
             }
           })
