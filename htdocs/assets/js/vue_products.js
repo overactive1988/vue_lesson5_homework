@@ -132,7 +132,7 @@ const app = createApp({
       axios[httpMethod](url, { data: tempProduct }) // post 或 put
         .then((res) => {
           if (res.data.success) {
-            this.$refs.productModal.hide() // 關掉 modal
+            this.$refs.adminControlModal.closeAdminModal() // 關掉 modal
             this.getData() // 重整畫面
           } else {
             alert(res.data.message)

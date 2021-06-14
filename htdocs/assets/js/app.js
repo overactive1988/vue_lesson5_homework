@@ -89,6 +89,7 @@ const app = Vue.createApp({
         .post(url,cartInfo)
         .then((res) => {
             this.loadingStatus.loadingItem = '';
+            this.$refs.userProductModal.closeAdminModal();
             this.getCart();
           })
           .catch((error) => {
@@ -103,7 +104,7 @@ const app = Vue.createApp({
             console.log(res);
             if (res.data.success) {
                 this.cart= res.data.data;
-                console.log(this.cart);
+                console.log(this.cart.carts);
             }
           })
           .catch((error) => {
@@ -135,7 +136,7 @@ const app = Vue.createApp({
     isPhone(value) {
         const phoneNumber = /^(09)[0-9]{8}$/
         return phoneNumber.test(value) ? true : '需要正確的電話號碼'
-      },
+    },
     onSubmit(){
         const orderInfo = {
           data: {
@@ -151,12 +152,43 @@ const app = Vue.createApp({
             console.log(res);
             if (res.data.success) {
             this.$refs.form.resetForm();
+            alert(res.data.message);
             this.getCart();
             }
           })
           .catch((error) => {
             console.log(error)
           })
+    },
+    deleteCart(item){
+      this.loadingStatus.loadingItem = item.id;
+      const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
+      axios
+      .delete(url)
+      .then((res) => {
+          if (res.data.success) {
+          this.loadingStatus.loadingItem = '';
+          alert(res.data.message);
+          this.getCart();
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    deleteCartAll(){
+      const url = `${baseUrl}/api/${apiPath}/carts`;
+      axios
+      .delete(url)
+      .then((res) => {
+          if (res.data.success) {
+          alert(res.data.message);
+          this.getCart();
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     },
 })
