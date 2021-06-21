@@ -19,16 +19,17 @@
       <div class="container">
         <div class="mt-4">
           <!-- 產品列表 -->
-          <user-product-modal ref="userProductModal" :userproduct="product" @add-cart="addCart"></user-product-modal>
+          <user-product-modal ref="userProductModal" :userproduct="product" @add-user-modal-product="addUserModalProduct" @cut-user-modal-product="cutUserModalProduct" @add-cart="addCart"></user-product-modal>
           <table class="table align-middle">
             <thead>
               <tr>
-                <th width="6%">排序</th>
+                <th width="5%">排序</th>
                 <th width="10%">產品縮圖</th>
                 <th width="10%">產品名稱</th>
-                <th width="24%">產品敘述</th>
-                <th width="10%">價格</th>
-                <th width="30%"></th>
+                <th width="27%">產品敘述</th>
+                <th width="20%">商品規格</th>
+                <th width="8%">價格</th>
+                <th width="20%"></th>
               </tr>
             </thead>
             <tbody>
@@ -44,6 +45,7 @@
                 </td>
                 <td>{{item.title}}</td>
                 <td>{{item.description}}</td>
+                <td>{{item.content}}</td>
                 <td>
                   <div class="h5">{{item.price}} 元</div>
                 </td>
@@ -52,16 +54,16 @@
                     <button @click="openModal(item)"
                      type="button" 
                      class="btn btn-outline-secondary"
-                     :disabled="loadingStatus.loadingItem === item.id">
-                      <i v-if="loadingStatus.loadingItem === item.id"
+                     :disabled="loadingStatus.loadingItem === item.id+2">
+                      <i v-if="loadingStatus.loadingItem === item.id+2"
                       class="fas fa-spinner fa-pulse" ></i>
                       查看更多
                     </button>
                     <button @click="addCart(item.id)"
                      type="button"
-                     :disabled="loadingStatus.loadingItem === item.id"
+                     :disabled="loadingStatus.loadingItem === item.id+1"
                      class="btn btn-outline-danger">
-                      <i v-if="loadingStatus.loadingItem === item.id" class="fas fa-spinner fa-pulse"></i>
+                      <i v-if="loadingStatus.loadingItem === item.id+1" class="fas fa-spinner fa-pulse"></i>
                       加到購物車
                     </button>
                   </div>
@@ -77,12 +79,14 @@
           </div>
           <!-- 購物車列表 -->
           
-          <div class="text-end">
+          <div class="text-end mb-2">
           <button class="btn btn-outline-danger"
           type="button"
           @click="deleteCartAll"
           :disabled="cart.carts <= 1"
-          >清空購物車</button>
+          >
+          <i v-if="loadingStatus.loadingItem === 1" class="fas fa-spinner fa-pulse"></i>
+          清空購物車</button>
         </div>
         <table class="table align-middle">
           <thead>
@@ -120,13 +124,27 @@
                     </td>
                     <td>
                       <div class="input-group input-group-sm">
-                        <div class="input-group mb-3">
-                          <input min="1" type="number" 
+                        <div class="input-group  text-center mb-3">
+                          <button type="button"
+                          @click="cutProductNum(item)"
+                          class="btn-dark btn input-group-text rounded-0 fs-8 border-end-0"
+                          :class="{ 'disabled': item.qty <= 1 }"
+                          :disabled="item.id === loadingStatus.loadingItem"
+                          >
+                            <span>-</span>
+                          </button> 
+                          <p class="form-control m-0">{{item.qty}}</p>
+                          <button type="button"
+                          @click="addProductNum(item)"
+                          class="btn-dark btn input-group-text rounded-0 fs-8"
+                          :disabled="item.id === loadingStatus.loadingItem"
+                          >
+                            <span>+</span>
+                          </button> 
+                          <!-- <input min="1" type="number" 
                           class="form-control"
                           @change="updateCart(item)"
-                          :disabled="item.id === loadingStatus.loadingItem"
-                          v-model.number="item.qty">
-                          <span class="input-group-text" id="basic-addon2">{{item.product.unit}}</span>
+                          v-model.number="item.qty"> -->
                         </div>
                       </div>
                     </td>
@@ -151,6 +169,7 @@
         <div class="my-5 row justify-content-center">
         </div>
       </div>
+      <div class="container">
       <div class="my-5 row justify-content-center">
         <v-form ref="form" v-slot="{ errors }" @submit="onSubmit" class="col-md-6">
           
@@ -207,13 +226,16 @@
             <button type="submit"
              class="btn btn-danger"
              :disabled="cart.carts <= 1"
-             >送出訂單</button>
+             >
+             <i v-if="loadingStatus.loadingItem === 1" class="fas fa-spinner fa-pulse"></i>
+             送出訂單</button>
           </div>
   
 
 
         </v-form>
       </div>
+    </div>
     </div>
 
 

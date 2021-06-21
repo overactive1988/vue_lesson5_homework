@@ -55,8 +55,9 @@ export default {
                 v-for="(item,index) in whereProduct.imagesUrl"
                 :key="'addImage'+index"
               >
+              <hr>
                 <div class="form-group">
-                  <label class="text-light bg-secondary mb-2 py-1 px-2" for="subImageUrl">請輸入副圖片網址</label>
+                  <label class="text-light bg-secondary mb-2 py-1 px-2" for="subImageUrl">請輸入副圖片 {{index+1}} 的網址</label>
                   <input
                     id="subImageUrl"
                     type="text"
@@ -112,19 +113,19 @@ export default {
               <input
                 id="title"
                 type="text"
-                class="form-control"
+                class="form-control mt-1"
                 placeholder="請輸入標題"
                 v-model.trim="whereProduct.title"
               />
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
               <div class="form-group col-md-6">
                 <label for="category">分類</label>
                 <input
                   id="category"
                   type="text"
-                  class="form-control"
+                  class="form-control mt-1"
                   placeholder="請輸入分類"
                   v-model="whereProduct.category"
                 />
@@ -134,21 +135,21 @@ export default {
                 <input
                   id="unit"
                   type="text"
-                  class="form-control"
+                  class="form-control mt-1"
                   placeholder="請輸入單位"
                   v-model="whereProduct.unit"
                 />
               </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
               <div class="form-group col-md-6">
                 <label for="origin_price">原價</label>
                 <input
                   id="origin_price"
                   type="number"
                   min="0"
-                  class="form-control"
+                  class="form-control mt-1"
                   placeholder="請輸入原價"
                   v-model.number="whereProduct.origin_price"
                 />
@@ -159,7 +160,7 @@ export default {
                   id="price"
                   type="number"
                   min="0"
-                  class="form-control"
+                  class="form-control mt-1"
                   placeholder="請輸入售價"
                   v-model.number="whereProduct.price"
                 />
@@ -172,24 +173,26 @@ export default {
               <textarea
                 id="description"
                 type="text"
-                class="form-control"
+                class="form-control mt-1"
                 placeholder="請輸入產品描述"
+                rows="6"
                 v-model.trim="whereProduct.description"
               >
               </textarea>
             </div>
-            <div class="form-group">
-              <label for="content">說明內容</label>
+            <div class="form-group mt-3">
+              <label for="content">商品規格</label>
               <textarea
                 id="content"
                 type="text"
-                class="form-control"
-                placeholder="請輸入說明內容"
+                class="form-control mt-1"
+                placeholder="請輸入商品規格"
+                rows="4"
                 v-model.trim="whereProduct.content"
               >
               </textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
               <div class="form-check">
                 <input
                   id="is_enabled"

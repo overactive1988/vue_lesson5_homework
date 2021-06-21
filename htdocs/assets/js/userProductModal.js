@@ -23,9 +23,21 @@ export default {
                <del class="h6" v-if="tempProduct.price">原價 {{ tempProduct.origin_price }} 元</del>
                <div class="h5" v-if="tempProduct.price">現在只要 {{ tempProduct.price }} 元</div>
                <div>
-                 <div class="input-group">
-                   <input type="number" class="form-control"
-                         v-model.number="qty" min="1">
+                 <div class="input-group text-center">
+                 <button type="button"
+                 @click="$emit('cut-user-modal-product', tempProduct)"
+                 class="btn-dark btn input-group-text rounded-0 fs-8 border-end-0"
+                 :class="{ 'disabled': qty <= 1 }"
+                 >
+                   <span>-</span>
+                 </button> 
+                 <p class="form-control m-0">{{qty}}</p>
+                 <button type="button"
+                 @click="$emit('add-user-modal-product')"
+                 class="btn-dark btn input-group-text rounded-0 fs-8"
+                 >
+                   <span>+</span>
+                 </button> 
                    <button type="button" class="btn btn-primary"
                            @click="$emit('add-cart', tempProduct.id, qty)">加入購物車</button>
                  </div>
@@ -49,16 +61,19 @@ export default {
   methods: {
     openAdminModal(){
     this.modal.show();
+    this.qty=1;
     },
     closeAdminModal(){
     this.modal.hide();
+    this.qty=1;
     },
   },
   data(){
     return {
       modal: '',
       qty:1,
-      tempProduct:{},
+      tempProduct:{
+      },
     }
   },
   watch: {

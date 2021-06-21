@@ -45,7 +45,7 @@ const app = Vue.createApp({
               const { products, pagination} = res.data;
               this.products = products
               this.pagination = pagination
-              console.log(res.data)
+              // console.log(res.data)
               this.getAllproducts() // 重新取得產品數量
             }
           })
@@ -61,7 +61,7 @@ const app = Vue.createApp({
     })
     },
     openModal(item){
-        this.loadingStatus.loadingItem = item.id;
+        this.loadingStatus.loadingItem = item.id+2;
         const url = `${baseUrl}/api/${apiPath}/product/${item.id}`;
         axios
         .get(url)
@@ -77,7 +77,7 @@ const app = Vue.createApp({
           })
     },
     addCart(id,qty =1){
-        this.loadingStatus.loadingItem = id;
+        this.loadingStatus.loadingItem = id+1;
         const cartInfo = {
             data: {
                 product_id: id,
@@ -101,43 +101,94 @@ const app = Vue.createApp({
         axios
         .get(url)
         .then((res) => {
-            console.log(res);
+            // console.log(res);
             if (res.data.success) {
                 this.cart= res.data.data;
-                console.log(this.cart.carts);
+                // console.log(this.cart.carts);
             }
           })
           .catch((error) => {
             console.log(error)
           })
     },
-    updateCart(item){
-        this.loadingStatus.loadingItem = item.id;
-        const cartInfo = {
-            data: {
-                product_id: item.product.id,
-                qty: item.qty,
-            }
+    cutUserModalProduct(){
+      this.$refs.userProductModal.qty -=1;
+    },
+    addUserModalProduct(){
+      this.$refs.userProductModal.qty +=1;
+    },
+    cutProductNum(item){
+      this.loadingStatus.loadingItem = item.id;
+      const cartInfo = {
+        data: {
+            product_id: item.product.id,
+            qty: item.qty-=1,
         }
-        const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
-        axios
-        .put(url,cartInfo)
-        .then((res) => {
-            console.log(res);
-            if (res.data.success) {
-            this.loadingStatus.loadingItem = '';
-            this.getCart();
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+    }
+    const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
+    axios
+    .put(url,cartInfo)
+    .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+        this.loadingStatus.loadingItem = '';
+        this.getCart();
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     },
+    addProductNum(item){
+      this.loadingStatus.loadingItem = item.id;
+      const cartInfo = {
+        data: {
+            product_id: item.product.id,
+            qty: item.qty+=1,
+        }
+    }
+    const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
+    axios
+    .put(url,cartInfo)
+    .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+        this.loadingStatus.loadingItem = '';
+        this.getCart();
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    },
+    // updateCart(item){
+    //     this.loadingStatus.loadingItem = item.id;
+    //     const cartInfo = {
+    //         data: {
+    //             product_id: item.product.id,
+    //             qty: item.qty,
+    //         }
+    //     }
+    //     const url = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
+    //     axios
+    //     .put(url,cartInfo)
+    //     .then((res) => {
+    //         console.log(res);
+    //         if (res.data.success) {
+    //         this.loadingStatus.loadingItem = '';
+    //         this.getCart();
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         console.log(error)
+    //       })
+    // },
     isPhone(value) {
         const phoneNumber = /^(09)[0-9]{8}$/
-        return phoneNumber.test(value) ? true : '需要正確的電話號碼'
+        return phoneNumber.test(value) ? true : '需為正確的手機號碼'
     },
     onSubmit(){
+      this.loadingStatus.loadingItem = 1;
         const orderInfo = {
           data: {
             user: this.form.user,
@@ -152,6 +203,8 @@ const app = Vue.createApp({
             console.log(res);
             if (res.data.success) {
             this.$refs.form.resetForm();
+            this.form.message = '';
+            this.loadingStatus.loadingItem = '';
             alert(res.data.message);
             this.getCart();
             }
@@ -177,11 +230,13 @@ const app = Vue.createApp({
         })
     },
     deleteCartAll(){
+      this.loadingStatus.loadingItem = 1;
       const url = `${baseUrl}/api/${apiPath}/carts`;
       axios
       .delete(url)
       .then((res) => {
           if (res.data.success) {
+          this.loadingStatus.loadingItem = '';
           alert(res.data.message);
           this.getCart();
           }
